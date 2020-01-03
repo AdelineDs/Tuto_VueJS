@@ -14,7 +14,9 @@
             <div class="header item">Tutoriel</div>
         </div>
         <div id="app" class="ui main container">
-            
+            <message type="error" :message="message"></message>
+            <counter></counter>
+            <counter :start="3"></counter>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
