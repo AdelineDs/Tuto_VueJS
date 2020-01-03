@@ -7,14 +7,30 @@ let message = {
 }
 
 let counter = {
-    template: `<div>
-        <span>{{ count }}</span>
-    </div>`
+    data: function(){
+        return {
+            count: 0
+        }
+    },
+    props: {
+        start: {type: Number, default: 0}
+    },
+    computed: {
+        total: function () {
+            return this.start + this.count
+        }
+    },
+    methods: {
+        increment: function () {
+            this.count++
+        }
+    },
+    template: `<button @click="increment">{{ total }}</button>`
 }
 
 let vm = new Vue({
     el: '#app',
-    components: { message },
+    components: { message, counter },
     data: {
         message: 'Un meilleur text'
     },
